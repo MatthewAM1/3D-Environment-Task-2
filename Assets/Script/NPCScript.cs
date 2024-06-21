@@ -42,7 +42,7 @@ public class NPCScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            gameManager.GameOver();
+            gameManager.BallCaptured();
         }
     }
 }

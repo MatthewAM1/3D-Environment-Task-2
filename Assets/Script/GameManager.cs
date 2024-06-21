@@ -8,26 +8,24 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject canvas;
-    [SerializeField] private TextMeshProUGUI gameOverText;
-    [SerializeField] private TextMeshProUGUI goalText;
 
     private void Start()
     {
         Time.timeScale = 1f;
     }
 
-    public void GameOver()
+    public void BallCaptured()
     {
         Time.timeScale = 0f;
+        ScoreManager.Instance.AddEnemyScore();
         canvas.gameObject.SetActive(true);
-        gameOverText.gameObject.SetActive(true);
     }
 
     public void Goal()
     {
         Time.timeScale = 0f;
+        ScoreManager.Instance.AddPlayerScore();
         canvas.gameObject.SetActive(true);
-        goalText.gameObject.SetActive(true);
     }
 
     public void RestartGame()
